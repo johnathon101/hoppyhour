@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Entree:</b>
+  <%= @food.entree %>
+</p>
+
+<p>
+  <b>Sides:</b>
+  <%= @food.sides %>
+</p>
+
+<p>
+  <b>Daytime:</b>
+  <%= @food.daytime %>
+</p>
+
+<p>
+  <b>Days:</b>
+  <%= @food.days %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= @food.place_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_place_food_path(@food) %> |
+<%= link_to 'Back', foods_path %>

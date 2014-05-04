@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  entree: MyString
+  sides: MyString
+  daytime: 1
+  days: MyText
+  place_id: 1
+
+two:
+  entree: MyString
+  sides: MyString
+  daytime: 1
+  days: MyText
+  place_id: 1

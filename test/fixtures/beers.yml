@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  brewery: MyString
+  name: MyString
+  desc: MyString
+  place_id: 1
+
+two:
+  brewery: MyString
+  name: MyString
+  desc: MyString
+  place_id: 1

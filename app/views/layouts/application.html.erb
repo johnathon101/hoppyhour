@@ -36,7 +36,7 @@
   
     <div id= "beer_search">
       <%= form_tag("/beer_search", method: "get") do %>
-        <%= label_tag(:q, "Thirsty?:") %>
+        <%= label_tag(:beer_query, "Thirsty?:") %>
         <%= text_field_tag(:beer_query) %>
         <% submit_tag("Search") %>
       <% end %>

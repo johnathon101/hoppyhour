@@ -86,8 +86,13 @@ class BeersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+  #Page of returned results for a specific beer.
   def results
     @beer_search = Beer.brewdb_beer(params)
   end
+  #Local Search for beers in the DB already allocated to a Place.
+  def search  
+    @hits = Beer.search_beer(params)
+  end
+
 end

@@ -55,7 +55,7 @@ class Beer < ActiveRecord::Base
   #
   # Returns Beer objects where the beer.name attribute contains the term serached for after manual fuzzy alterations.
   def self.search_beer(params)
-    query = params[:q].downcase
+    query = params[:beer_query].downcase 
     length=1+(query.size)/3
     term=query[1..length]
     return Beer.where("name like ?", "%#{term}%")

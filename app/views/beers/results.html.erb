@@ -1,6 +1,10 @@
 
 <h3>Please choose a result:</h3>
 <% @beer_search["data"].each do |beer| %>
-  <h2><%= link_to beer["name"], beers_create_path(:name=> beer["name"]), :method => 'post' %></h2>
+  <ul>
+    <li><%= link_to "Is It On Tap?", beer_search_path(:beer_query => beer["name"]) %>
+    <li>Name: <%= beer["name"] %></li>
+    <li>Description:<br> <%=  beer["description"] %></li>
+  </ul>
   <br>
 <% end %>

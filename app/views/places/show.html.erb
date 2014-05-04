@@ -30,6 +30,21 @@
   <%= @place.rating %>
 </p>
 
+<p>
+<%   @place.beers.each do |beer| %>
+  <h3><%= beer.name %></h3>
+  <h5><%= beer.desc %></h5>
+<% end %>
+</p>
+
+<p>
+<%   @place.foods.each do |food| %>
+  <h3><%= food.entree %></h3>
+  <h5><%= food.sides %></h5>
+  <h5><%= food.days %></h5>
+<% end %>
+</p> 
+
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>

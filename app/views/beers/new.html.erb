@@ -1,7 +1,12 @@
-<h1>Find A Beer!</h1>
+<div id="brewdb_from_place">
+  <h1>Find A Beer!</h1>
 
+  <%= form_tag(beers_results_path(:place_id => params[:place_id], :method=>'post')) do %>
+    <li><%= text_field_tag "brewdb_query", "BrewDB Search" %></li>
+    <li><%= submit_tag 'Search' %></li>
+  <% end %>  
 
 <h1>Add A Beer Manually</h1>
 <%= render 'form' %>
 
-<%= link_to 'Back', beers_path %>
+<%= link_to 'Back', place_beers_path %>

@@ -42,6 +42,7 @@
   float:left;
   width:auto;
   clear:right;
+  height:auto;
 }
 
 #login_block{
@@ -56,8 +57,12 @@
   width:auto;
   margin-right:10%;
   margin-top:20px;
-  background-color:#787948;
+  background-color:#3D48AA;
   height:50px;
+  
+}
+#search_block input[type="text"], textarea{
+  background-color:#FFFBD0;
 }
 
 #beer_search{
@@ -94,6 +99,9 @@
 	float: left;
   clear: left;
   color:blue;
+}
+#sidebar ul{
+  list-style: none;
 }
 /*END BODY CONTENTS*/
 
@@ -149,18 +157,27 @@
     clear:both;
     height:auto;
 	  background-size:100%;
-    margin: 0 0 0 0;
+    margin: 0 2% 0 2%;
+    padding:0 2% 0 2%;
+    float:left;
+    margin-left:0;
   }
   
+  #search_block label{
+    float:left;
+    width:10%; 
+    font-size:auto;
+  }
+  #search_block input[type="text"], textarea{
+    width:30%;
+    float:right;
+  }
   #food_search{
-    width:20%;
-    margin-left:5%;
-    
+    width:40%;
   }
   
   #beer_search{
-    width:20%;
-    padding-bottom:10px;
+    width:40%;
     float:right;
     overflow:hidden;
   }

@@ -137,6 +137,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dotenv-rails
   jquery-rails
+  json
   negative_captcha
   pg
   rails (= 3.2.17)

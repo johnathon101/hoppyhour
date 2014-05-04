@@ -1,37 +1,73 @@
 <!DOCTYPE html>
+<div id= "pagewrap">
 <html>
-<head>
+<head class="clear">
   <title>Hoppy Hour</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   
   <div id="head_image">
-    <%= image_tag "hoppyhourlogo.png" %>
+    <%= image_tag "hoppy160.png" %>
   </div>
   
   <div id="top_logo_text">
-    <h1 class="top_sitename">Hoppy Hour</h1>
+    <%= image_tag ("hoppytext.png")%>
   </div>
   
-  <div id="login_block">
+  <div id="login_block" class="cf">
     <% if current_user %>
       Logged in as <%= current_user.email %>.
-      <%= link_to "Log out", logout_path %>
+      <%= link_to "Log-Out", logout_path %>
     <% else %>
-      <%= link_to "Sign up", signup_path %> or
-      <%= link_to "log in", login_path %>.
+      <%= link_to "Sign-Up", signup_path %>
+      <%= link_to "Log-In", login_path %>.
     <% end %>
+  </div>
+  
+  <div id="search_block" class ="cf">
+    <div id = "food_search">
+      <%= form_tag("/food_search", method: "get") do %>
+        <%= label_tag(:q, "Hungry?:") %>
+        <%= text_field_tag(:foods_query) %>
+        <% submit_tag("Search") %>
+      <% end %>
+    </div>
+  
+    <div id= "beer_search">
+      <%= form_tag("/beer_search", method: "get") do %>
+        <%= label_tag(:q, "Thirsty?:") %>
+        <%= text_field_tag(:beer_query) %>
+        <% submit_tag("Search") %>
+      <% end %>
+    </div>
   </div>
   
 </head>
 
-<body>
-
-<%= yield %>
-
+<body class = "clear">
+  <div id= "sidebar">
+    <ul>
+      <li><%=link_to("Locations", places_path)%></li>
+      
+      
+      <li>Food Specials</li>
+      <li>Beer Selection</li>
+      <li>BrewDB Search:</li>
+      <%= form_tag(beers_results_path(:method=>'post')) do %>
+        <li><%= text_field_tag "brewdb_query" %></li>
+        <li><%= submit_tag 'Search' %></li>
+      <% end %>  
+      
+    </ul>
+  </div>
+      
+  </div>
+  <div id= "content">
+    <%= yield %>
+  </div>
 </body>
-<footer>
+<footer class="clear">
   <div id="low_logo_text">
     <h1 class="low_sitename">Hoppy Hour</h1>
   </div>
@@ -49,4 +85,5 @@
   </div>
   
 </footer>
+</div>
 </html>

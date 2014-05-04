@@ -1,20 +1,21 @@
 Hoppyhour2::Application.routes.draw do
-  get "sessions/new"
 
-  get "users/new"
-
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  
   resources :places do
     resources :foods
     resources :beers
   end
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
+  
+  
   resources :users
   resources :sessions
-  root :to => "places#index"
-
-  
+  root :to =>  "places#index"
+  get "/beer_search"=> "beers#search", :as => "beer_search"
+  get "/food_search"=> "foods#search", :as => "food_search"
+  post "/beers/results" =>"beers#results", :as => "beers_results"
 
 
   # The priority is based upon order of creation:

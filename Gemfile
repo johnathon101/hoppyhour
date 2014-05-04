@@ -40,3 +40,5 @@ gem 'dotenv-rails', :groups => [:development, :test]
 require 'pry'
 gem 'sorcery'
 gem 'negative_captcha'
+gem 'json'
+require 'open-uri'

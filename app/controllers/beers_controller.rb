@@ -86,4 +86,8 @@ class BeersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def results
+    @beer_search = Beer.brewdb_beer(params)
+  end
 end

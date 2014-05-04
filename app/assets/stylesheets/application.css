@@ -11,3 +11,181 @@
  *= require_self
  *= require_tree .
  */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+.clear { clear: both;}
+#pagewrap {
+	width: 95%;
+	margin: 0 auto;
+  background-color:black;
+  color:white;
+  font-family:copperplate;
+}
+
+#head {
+	height: 160px;
+  width:100%;
+}
+/*HEAD CONTENTS*/
+#head_image{
+  float:left;
+  width:15%;
+}
+#top_logo_text{
+  float:left;
+  width:30%;
+  clear:right;
+}
+
+#login_block{
+  float:right;
+  position:relative;
+  width:10%;
+  
+}
+
+#search_block{
+  float:right;  
+  width:auto;
+  margin-right:10%;
+  margin-top:20px;
+  background-color:#787948;
+  height:50px;
+}
+
+#beer_search{
+  float:left;
+  width:28%;
+  margin-left:10%;
+}
+
+#food_search{
+  float:left;
+  width:28%;
+  margin-left:10%;
+}
+/*END HEAD CONTENTS*/
+/*START BODY CONTENTS*/
+#content {
+	width: 600px;
+	float: left;
+  clear:right;
+}
+
+#sidebar {
+	width: 280px;
+	float: left;
+  clear: left;
+  color:blue;
+}
+/*END BODY CONTENTS*/
+
+#footer {
+  height:150px;
+  float:left;
+}
+/*END FOOTER CONTENTS*/
+
+@media screen and (max-width: 980px) {
+
+	#pagewrap {
+		width: 95%;
+	}
+  #head_image{
+    width:80px;
+  }
+	#content {
+		width: 60%;
+		padding: 3% 4%;
+    float:left;
+	}
+
+	#sidebar {
+		width: 30%;
+	  float:left;
+  }
+
+  #footer {
+    clear:both;
+  }
+}
+
+@media screen and (max-width: 650px) {
+
+	#header {
+		height: auto;
+	}
+  #head_image{
+    width:60px;
+  }
+	#login-block{
+	  margin-right:2%;
+	}
+  
+  #search_block{
+	  width:100%;
+    clear:both;
+    margin-right:3%;
+    height:auto;
+	  background-size:100%;
+  }
+  
+  #food_search{
+    width:40%;
+    margin-left:5%;
+  }
+  
+  #beer_search{
+    width:40%;
+    padding-bottom:10px;
+    float:right;
+    overflow:hidden;
+  }
+  
+  #content {
+		width: 100%;
+		float: none;
+		margin: 20px 0;
+	}
+
+	#sidebar {
+		width: 100%;
+		float: left;
+		margin: 0;
+    display:inline-block;
+    clear:both;
+  }
+  
+  #sidebar p{
+    display:inline-block;
+  }
+  #footer{
+    width:100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+	html {
+		-webkit-text-size-adjust: none;
+	}
+
+	#main-nav a {
+		font-size: 90%;
+		padding: 10px 8px;
+	}
+
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+}

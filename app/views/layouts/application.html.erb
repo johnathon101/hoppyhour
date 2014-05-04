@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hoppyhour2</title>
+  <title>Hoppy Hour</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log out", logout_path %>
-<% else %>
-  <%= link_to "Sign up", signup_path %> or
-  <%= link_to "log in", login_path %>.
-<% end %>
+  
+  <div id="head_image">
+    <%= image_tag "hoppyhourlogo.png" %>
+  </div>
+  
+  <div id="top_logo_text">
+    <h1 class="top_sitename">Hoppy Hour</h1>
+  </div>
+  
+  <div id="login_block">
+    <% if current_user %>
+      Logged in as <%= current_user.email %>.
+      <%= link_to "Log out", logout_path %>
+    <% else %>
+      <%= link_to "Sign up", signup_path %> or
+      <%= link_to "log in", login_path %>.
+    <% end %>
+  </div>
+  
 </head>
+
 <body>
 
 <%= yield %>
 
 </body>
+<footer>
+  <div id="low_logo_text">
+    <h1 class="low_sitename">Hoppy Hour</h1>
+  </div>
+  
+  <div id="ocs_logo">
+    <%= image_tag "OCSlogo.png" %>
+  </div>
+  
+  <div id="creator">
+    <h2 class = "namelinks"><a href = "http://johnathon101.github.io/journal/">Created By: Johnathon Lueth</a></h2>
+  </div>
+  
+  <div id="social_media">
+  
+  </div>
+  
+</footer>
 </html>

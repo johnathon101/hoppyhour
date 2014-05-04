@@ -12,7 +12,7 @@ Hoppyhour2::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   resources :users
   resources :sessions
-
+  root :to => "places#index"
 
   
 

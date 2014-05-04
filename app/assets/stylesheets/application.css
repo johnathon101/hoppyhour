@@ -79,6 +79,16 @@
   clear:right;
 }
 
+#content label{
+  width:10%;
+  text-align:right;
+  padding-right:10px;
+}
+
+#content input, label {
+    float:left;
+}
+
 #sidebar {
 	width: 280px;
 	float: left;
@@ -90,6 +100,11 @@
 #footer {
   height:150px;
   float:left;
+  background-color:#8B9591;
+  width:100%;
+}
+#creator h1{
+  font-size:15px;
 }
 /*END FOOTER CONTENTS*/
 

@@ -87,4 +87,8 @@ class FoodsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def complete_index
+    @foods = Food.all
+  end
 end

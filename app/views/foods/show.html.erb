@@ -22,9 +22,9 @@
 
 <p>
   <b>Place:</b>
-  <%= @food.place_id %>
+  <%= Place.find(@food.place_id).name %>
 </p>
 
 
 <%= link_to 'Edit', edit_place_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+<%= link_to 'Back', place_foods_path %>

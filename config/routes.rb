@@ -17,7 +17,8 @@ Hoppyhour2::Application.routes.draw do
   get "/food_search"=> "foods#search", :as => "food_search"
   post "/beers/results" =>"beers#results", :as => "beers_results"
   post "/places/results" => "places#results", :as => "places_results"
-
+  get "/foods/all" => "foods#complete_index", :as => "foods_index"
+  get "/beers/all" => "beers#complete_index", :as => "beers_index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

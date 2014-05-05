@@ -94,5 +94,9 @@ class BeersController < ApplicationController
   def search  
     @hits = Beer.search_beer(params)
   end
+  
+  def complete_index
+    @beers = Beer.all
+  end
 
 end

@@ -1,0 +1,3 @@
+<% @foods.each do |food| %>
+  <%= link_to food.entree, place_food_path(food.place_id, food.id) %><br>
+<% end %>

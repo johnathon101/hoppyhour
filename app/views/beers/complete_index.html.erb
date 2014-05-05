@@ -1,0 +1,3 @@
+<% @beers.each do |beer| %>
+  <%= link_to beer.name, place_beer_path(beer.place_id, beer.id) %><br>
+<% end %>

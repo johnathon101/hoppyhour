@@ -17,9 +17,9 @@
 
 <p>
   <b>Place:</b>
-  <%= @beer.place_id %>
+  <%= Place.find(@beer.place_id).name %>
 </p>
 
 
 <%= link_to 'Edit', edit_place_beer_path(@beer) %> |
-<%= link_to 'Back', beers_path %>
+<%= link_to 'Back', place_beers_path %>

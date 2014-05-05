@@ -40,10 +40,10 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
-    @place = Place.new(params[:place])
-
+    @place = Place.find(Place.check_and_create(params))
+    
     respond_to do |format|
-      if @place.save
+      if @place.save  
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render json: @place, status: :created, location: @place }
       else
@@ -80,4 +80,9 @@ class PlacesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def results
+    @location = Place.search_google(params)
+  end
+  
 end

@@ -1,0 +1,9 @@
+<h3>Please choose a result:</h3>
+<% @location["results"].each do |place| %>
+  <% lat = place["geometry"]["location"]["lat"]%>
+  <% lng = place["geometry"]["location"]["lng"] %>
+  <% f=lat.to_s.gsub(".","e") %>
+  <% g=lng.to_s.gsub(".","e") %>
+ <h2><%= link_to(place["name"], places_path(:name => place["name"], :address => place["formatted_address"], :lat => "#{f}", :lon => "#{g}"), :method => 'post') %>
+  <p><%=  place["formatted_address"] %></p>
+<% end %>

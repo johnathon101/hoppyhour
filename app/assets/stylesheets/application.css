@@ -150,7 +150,7 @@ footer {
 @media screen and (max-width: 980px) {
 
 	#pagewrap {
-		width: 95%;
+		width: 100%%;
 	}
   #head_image{
     width:80px;
@@ -169,12 +169,17 @@ footer {
   #footer {
     clear:both;
   }
+  
+  #search_block{
+    float:right;
+  }
 }
 
 @media screen and (max-width: 650px) {
 
 	#header {
 		height: auto;
+    width:100%;
 	}
   #head_image{
     width:60px;

@@ -52,9 +52,12 @@ class Place < ActiveRecord::Base
       @location_id = @check_db.id
     else
       #If the location is not in HoppyHour yet, we can add it.
+      address = params[:address].split(',')
       @place=Place.new
       @place.name = params[:name]
-      @place.address = params[:address]
+      @place.address = address[0]
+      @place.city = address[1]
+      @place.state = address[2]
       @place.lon=lng
       @place.lat=lat
       @place.save

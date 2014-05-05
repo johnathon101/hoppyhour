@@ -21,20 +21,38 @@
     clear: both;
 }
 .clear { clear: both;}
+html,body{
+  background-color:#B6A68E;
+  height:100%;
+  margin:0;
+  padding:0;
+}
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+ }
 #pagewrap {
-	width: 95%;
-	margin: 0 auto;
-  background-color:black;
+	width: 100%;
   color:white;
   font-family:copperplate;
+  min-height:100%;
+  position:relative;
 }
 
-head {
-	height: 160px;
-  width:100%;
-  background-color:black;
-}
+
 /*HEAD CONTENTS*/
+#head_container{
+  background-color:black;
+  width:100%;
+  height:110px;
+  background-image:url(taps.png);
+  background-position:right;
+  background-repeat:no-repeat;
+  border:2px #A27533 solid;
+  opacity:.9;
+}
+
 #head_image{
   float:left;
   width:auto;
@@ -42,28 +60,24 @@ head {
 #top_logo_text{
   float:left;
   width:auto;
-  clear:right;
+
   height:auto;
+  margin-top:2%;
 }
 
 #login_block{
-  float:right;
-  position:relative;
-  width:10%;
-  
+  float:left;
 }
 
 #search_block{
   float:right;  
   width:auto;
-  margin-right:10%;
   margin-top:20px;
-  background-color:#8E6226;
   height:50px;
-  
 }
 #search_block input[type="text"], textarea{
-  background-color:#688865;
+  background-color:#5A6B80;
+ 
 }
 
 #beer_search{
@@ -79,10 +93,14 @@ head {
 }
 /*END HEAD CONTENTS*/
 /*START BODY CONTENTS*/
+
 #content {
-	width: 600px;
-	float: left;
+	width: 70%;
+	float:left;
   clear:right;
+  background-color:#B6A68E;
+  padding-bottom:80px;
+  padding:10px;
 }
 
 #content label{
@@ -96,24 +114,36 @@ head {
 }
 
 #sidebar {
-	width: 280px;
+	width: 25%;
 	float: left;
   clear: left;
   color:blue;
+  background-color:#B6A68E;
+  padding-bottom:80px;
+  padding:10px;
 }
 #sidebar ul{
   list-style: none;
 }
 /*END BODY CONTENTS*/
 
-#footer {
-  height:150px;
-  float:left;
-  background-color:#8B9591;
+footer {
+  height:80px;
+  position:fixed;
+  background-color:black;
   width:100%;
+  bottom:0;
+  border:2px #A27533 solid;
 }
-#creator h1{
-  font-size:15px;
+#ocs_logo img{
+  width:60px;
+  float:right;
+  margin:10px 10px;
+}
+#creator{
+  font-size:7px;
+  float:left;
+  margin: 30px 0px 0px 30px;
 }
 /*END FOOTER CONTENTS*/
 
@@ -158,8 +188,8 @@ head {
     clear:both;
     height:30px;
 	  background-size:100%;
-    margin: 0 2% 0 2%;
-    padding:0 2% 0 2%;
+    margin: 0 2% 0 0;
+    padding:0 2% 0 0;
     float:left;
     margin-left:0;
   }
@@ -178,11 +208,12 @@ head {
   #food_search{
     width:40%;
     margin-top:1%;
+    float:left;
   }
-  
+    
   #beer_search{
     width:40%;
-    float:right;
+    float:left;
     overflow:hidden;
     margin-top:1%;
   }

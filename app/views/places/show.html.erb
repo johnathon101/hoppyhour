@@ -1,49 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @place.name %>
-</p>
+<div id= "details">
+  <p>
+    <%= @place.name %><br>
+    <%= @place.address %>, <%= @place.city %>, <%= @place.state %>
+  </p>
+</div>
 
-<p>
-  <b>Address:</b>
-  <%= @place.address %>
-</p>
+<div id= "rating">
+  <p>
+    <b>Rating:</b>
+    <%= @place.rating %>
+  </p>
+</div>
 
-<p>
-  <b>City:</b>
-  <%= @place.city %>
-</p>
+<div id="place_beers">
+    <h3>Beer Specials</h3>
+  <ul>
+  <% @place.beers.each do |beer| %>
+    <li><h3><%= beer.name %></h3>
+    <h5><%= beer.desc %></h5></li>
+  <% end %>
+  </ul>
+</div>
 
-<p>
-  <b>State:</b>
-  <%= @place.state %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @place.zip %>
-</p>
-
-<p>
-  <b>Rating:</b>
-  <%= @place.rating %>
-</p>
-
-<p>
-<%   @place.beers.each do |beer| %>
-  <h3><%= beer.name %></h3>
-  <h5><%= beer.desc %></h5>
-<% end %>
-</p>
-
-<p>
-<%   @place.foods.each do |food| %>
-  <h3><%= food.entree %></h3>
-  <h5><%= food.sides %></h5>
-  <h5><%= food.days %></h5>
-<% end %>
-</p> 
+<div id="place_foods">
+  <h3>Food Specials</h3>
+  <ul>
+    <% @place.foods.each do |food| %>
+      <li><h3><%= food.entree %></h3>
+        <h5><%= food.sides %></h5>
+        <h5><%= food.days %></h5></li>
+      <% end %>
+  </ul>
+</div> 
 
 
 <%= link_to 'Edit', edit_place_path(@place) %> |

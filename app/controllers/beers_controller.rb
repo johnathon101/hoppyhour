@@ -48,24 +48,26 @@ class BeersController < ApplicationController
     #We get the beer id from the params, or the last time the user searched brew db and clicked to add the user.
 
     beer_id = session[:brewdb_id] || params[:brew_id]
+    @beer = Beer.where(:brewdb_id => beer_id).first
     response = JSON.load(open("http://api.brewerydb.com/v2/beer/#{beer_id}?key=#{ENV["BREWDB_KEY"]}&withBreweries=Y"))
     a        = response["data"]
     name     = a["name"]
-    check_duplicate = Beer.find_by_name(name)
 
-    if check_duplicate != nil && check_duplicate.place_id != @place.id
-      redirect_to(place_beer_path(@place.id,check_duplicate.id))
+    if @beer != nil
+      @place.beers << @beer
+      redirect_to place_path(@place.id)
     else
-      abv      = a["abv"]
-      ibu      = a["ibu"]
-      brewery  = a["breweries"][0]["name"]
-      desc     = a["style"]["description"]
-      add_beer = {name: name, abv: abv, ibu: ibu, brewery: brewery, desc: desc}
-      @beer    = @place.beers.build(add_beer)
+      brewdb_id = beer_id
+      abv       = a["abv"]
+      ibu       = a["ibu"]
+      brewery   = a["breweries"][0]["name"]
+      desc      = a["style"]["description"]
+      add_beer  = {name: name, abv: abv, ibu: ibu, brewery: brewery, desc: desc, brewdb_id:beer_id}
+      @beer     = @place.beers.create(add_beer)
     end
     session[:brewdb_id] = nil
     session[:beer_name] = nil
-    
+
     respond_to do |format|
       if @beer.save
         format.html { redirect_to place_path(@place.id), notice: 'Beer was successfully created.' }

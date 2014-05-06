@@ -23,7 +23,7 @@
 <div id="place_beers">
     <h3>Beer List</h3>
   <ul>
-  <% @place.beers.each do |beer| %>
+  <% @beers.each do |beer| %>
     <li><h3><%= beer.name %></h3>
     <h5><%= beer.desc %></h5></li>
     <h5><%= link_to "Remove", place_beer_path(@place.id, beer.id), {method: :delete} %>
@@ -34,7 +34,7 @@
 <div id="place_foods">
   <h3>Food Specials</h3>
   <ul>
-    <% @place.foods.each do |food| %>
+    <% @foods.each do |food| %>
       <li><h3><%= food.entree %></h3>
         <h5><%= food.sides %></h5>
         <h5><%= food.days %></h5></li>

@@ -49,7 +49,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        format.html { redirect_to @place, notice: 'Successfully added to Hoppy Hour!.' }
         format.json { render json: @place, status: :created, location: @place }
       else
         format.html { render action: "new" }

@@ -28,8 +28,8 @@ html,body{
   padding:0;
 }
 *, *:before, *:after {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
  }
 #pagewrap {
@@ -70,14 +70,14 @@ html,body{
 }
 
 #search_block{
-  float:right;  
+  float:right;
   width:auto;
   margin-top:20px;
   height:50px;
 }
 #search_block input[type="text"], textarea{
   background-color:#5A6B80;
- 
+
 }
 
 #beer_search{
@@ -100,7 +100,7 @@ html,body{
   clear:right;
   background-color:#B6A68E;
   padding-bottom:80px;
-  padding:10px;
+/*  padding:10px;*/
 }
 
 #content label{
@@ -169,7 +169,7 @@ footer {
   #footer {
     clear:both;
   }
-  
+
   #search_block{
     float:right;
   }
@@ -187,7 +187,7 @@ footer {
 	#login-block{
 	  margin-right:2%;
 	}
-  
+
   #search_block{
 	  width:100%;
     clear:both;
@@ -198,31 +198,31 @@ footer {
     float:left;
     margin-left:0;
   }
-  
+
   #search_block label{
     float:left;
-    width:10%; 
+    width:10%;
     font-size:auto;
     margin-top:2%;
   }
   #search_block input[type="text"], textarea{
     width:30%;
     float:right;
-  
+
   }
   #food_search{
     width:40%;
     margin-top:1%;
     float:left;
   }
-    
+
   #beer_search{
     width:40%;
     float:left;
     overflow:hidden;
     margin-top:1%;
   }
-  
+
   #content {
 		width: 100%;
 		float: left;
@@ -237,7 +237,7 @@ footer {
     clear:both;
     text-align:center;
   }
-  
+
   #sidebar p{
     display:inline-block;
   }

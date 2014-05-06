@@ -3,9 +3,10 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Address</th>
     <th>City</th>
-    
-    
+
+
     <th>Rating</th>
     <th></th>
     <th></th>
@@ -15,15 +16,17 @@
 <% @places.each do |place| %>
   <tr>
     <td><%= link_to place.name, place_path(place.id) %></td>
-    
+    <td><%= place.address %></td>
     <td><%= place.city %></td>
-    
-    
-    <td><%= place.rating %></td>
+
+
+    <td><center><%= place.rating %></td>
     <td><%= link_to 'Show', place %></td>
-    <td><%= link_to 'Edit', edit_place_path(place) %></td>
-    <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <% if admin? %>
+      <td><%= link_to 'Edit', edit_place_path(place) %></td>
+      <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+</tr>
 <% end %>
 </table>
 

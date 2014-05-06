@@ -11,8 +11,9 @@
 </p>
 
 <p>
-  <b>Desc:</b>
-  <%= @beer.desc %>
+  <b>Description:</b>
+  <%= @beer.desc %><br>
+  ABV: <%= @beer.abv || "Not Available"%> IBU: <%=@beer.ibu || "Not Available"%>
 </p>
 
 <p>

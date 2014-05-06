@@ -34,9 +34,11 @@
   <h3>Food Specials</h3>
   <ul>
     <% @foods.each do |food| %>
-      <li><h3><%= food.entree %></h3>
-        <h5><%= food.sides %></h5>
-        <h5><%= food.days %></h5></li>
+      <li><%= food.entree %>, $<%= food.price %> </li>
+        <li><%= food.sides %></li>
+        <% food.days.each do |day| %>
+          <%= day %>,
+        <% end %>
       <% end %>
   </ul>
 </div>

@@ -47,7 +47,7 @@ class FoodsController < ApplicationController
   def create
     @place = Place.find(params[:place_id])
     @food = @place.foods.build(params[:food])
-    @food.days = params["day"]["days"]
+    @food.days = (params["day"]["days"]).reject! { |e| e.empty? }
     respond_to do |format|
       if @food.save
         format.html { redirect_to place_path(@place.id), notice: 'Food was successfully created.' }

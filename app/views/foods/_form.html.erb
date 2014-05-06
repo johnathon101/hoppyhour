@@ -27,7 +27,7 @@
     <ul style="list-style: none;">
     <% @days.each do |day| %>
       <li><%= f.label day %>
-      <%= check_box 'day',:days, {:multiple => true}, checked_value = day , unchecked_value= 0 %></li>
+      <%= check_box 'day',:days, {:multiple => true}, checked_value = day , unchecked_value= "" %></li>
     <% end %><br><br>
   </ul>
   </div>

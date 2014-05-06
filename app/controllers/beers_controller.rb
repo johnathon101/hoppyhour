@@ -63,10 +63,12 @@ class BeersController < ApplicationController
       add_beer = {name: name, abv: abv, ibu: ibu, brewery: brewery, desc: desc}
       @beer    = @place.beers.build(add_beer)
     end
+    session[:brewdb_id] = nil
+    session[:beer_name] = nil
 
     respond_to do |format|
       if @beer.save
-        format.html { redirect_to @beer, notice: 'Beer was successfully created.' }
+        format.html { redirect_to place_path(@place.id), notice: 'Beer was successfully created.' }
         format.json { render json: @beer, status: :created, location: @beer }
       else
         format.html { render action: "new" }
@@ -95,12 +97,12 @@ class BeersController < ApplicationController
   # DELETE /beers/1
   # DELETE /beers/1.json
   def destroy
-    @company = Company.find(parmas[:company_id])
+    @place = Place.find(params[:place_id])
     @beer = Beer.find(params[:id])
     @beer.destroy
 
     respond_to do |format|
-      format.html { redirect_to beers_url }
+      format.html { redirect_to place_path(@place.id) }
       format.json { head :no_content }
     end
   end

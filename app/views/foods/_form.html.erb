@@ -12,26 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :entree %><br />
-    <%= f.text_field :entree %>
+    <%= f.label :entree %>
+    <%= f.text_field :entree %><br><br>
   </div>
   <div class="field">
-    <%= f.label :sides %><br />
-    <%= f.text_field :sides %>
+    <%= f.label :sides %>
+    <%= f.text_field :sides %><br><br>
   </div>
   <div class="field">
-    <%= f.label :daytime %><br />
-    <%= f.number_field :daytime %>
+    <%= f.label :daytime %>
+    <%= f.select(:daytime, [["Breakfast", 0], ["Lunch",1], ["Dinner", 2]]) %>
   </div>
   <div class="field">
-    <%= f.label :days %><br />
-    <%= f.text_area :days %>
+    <ul style="list-style: none;">
+    <% @days.each do |day| %>
+      <li><%= f.label day %>
+      <%= check_box 'day',:days, {:multiple => true}, checked_value = day , unchecked_value= 0 %></li>
+    <% end %><br><br>
+  </ul>
   </div>
-  <div class="field">
-    <%= f.label :place_id %><br />
-    <%= f.number_field :place_id %>
+  <div class ="field">
+    <%= f.label "Price" %>
+    <%= f.text_field :price %><br><br>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Food" %>
   </div>
-<% end %>
+<% end %><br><br>

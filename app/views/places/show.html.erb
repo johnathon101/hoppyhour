@@ -21,11 +21,12 @@
 </div>
 
 <div id="place_beers">
-    <h3>Beer Specials</h3>
+    <h3>Beer List</h3>
   <ul>
   <% @place.beers.each do |beer| %>
     <li><h3><%= beer.name %></h3>
     <h5><%= beer.desc %></h5></li>
+    <h5><%= link_to "Remove", place_beer_path(@place.id, beer.id), {method: :delete} %>
   <% end %>
   </ul>
 </div>

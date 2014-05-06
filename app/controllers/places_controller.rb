@@ -99,7 +99,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place
-        format.json { render :json => @place.foods + @place.beers }.to_json
+        format.json { render :json => {:food => @place.foods, :beer => @place.beers }}.to_json
       else
         render json: {message: 'Resource not found'}, status: 404
       end

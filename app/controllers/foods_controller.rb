@@ -27,6 +27,7 @@ class FoodsController < ApplicationController
   # GET /foods/new.json
   def new
     @place = Place.find(params[:place_id])
+    @days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     @food = Food.new
 
     respond_to do |format|
@@ -46,10 +47,10 @@ class FoodsController < ApplicationController
   def create
     @place = Place.find(params[:place_id])
     @food = @place.foods.build(params[:food])
-
+    @food.days = params["day"]["days"])
     respond_to do |format|
       if @food.save
-        format.html { redirect_to @food, notice: 'Food was successfully created.' }
+        format.html { redirect_to place_path(@place.id), notice: 'Food was successfully created.' }
         format.json { render json: @food, status: :created, location: @food }
       else
         format.html { render action: "new" }
@@ -87,7 +88,7 @@ class FoodsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def complete_index
     @foods = Food.all
   end

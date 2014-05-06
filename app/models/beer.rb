@@ -1,5 +1,5 @@
 class Beer < ActiveRecord::Base
-  attr_accessible :brewery, :desc, :name, :place_id, :abv, :ibu
+  attr_accessible :brewery, :desc, :name, :brewdb_id, :abv, :ibu, :photo_ref
   has_and_belongs_to_many :places
   # Public: Retrieve JSON response from BrewDB and display it for the user.
   #

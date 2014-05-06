@@ -14,9 +14,9 @@ class BeersController < ApplicationController
   # GET /beers/1
   # GET /beers/1.json
   def show
-    @place = Place.find(params[:place_id])
-    @beer = Beer.find(params[:id])
 
+    @beer = Beer.find(params[:id])
+    @places = @beer.places.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @beer }
@@ -58,11 +58,12 @@ class BeersController < ApplicationController
       redirect_to place_path(@place.id)
     else
       brewdb_id = beer_id
+      photo_ref = a["labels"]["medium"]
       abv       = a["abv"]
       ibu       = a["ibu"]
       brewery   = a["breweries"][0]["name"]
       desc      = a["style"]["description"]
-      add_beer  = {name: name, abv: abv, ibu: ibu, brewery: brewery, desc: desc, brewdb_id:beer_id}
+      add_beer  = {name: name, abv: abv, ibu: ibu, brewery: brewery, desc: desc, brewdb_id: beer_id, photo_ref: photo_ref }
       @beer     = @place.beers.create(add_beer)
     end
     session[:brewdb_id] = nil

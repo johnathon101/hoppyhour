@@ -22,6 +22,7 @@ Hoppyhour2::Application.routes.draw do
   #JSON Response for Workhang
   get "/workhang/:lat/:lon" => "places#workhang_place", defaults: {format: :json}
   post "/add_beer" => "beers#create", :as => "add_beer"
+  get "/beers/:id" => "beers#show", :as => "show_beer"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140506050349) do
+ActiveRecord::Schema.define(:version => 20140506162504) do
 
   create_table "beers", :force => true do |t|
     t.string   "brewery"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20140506050349) do
     t.float    "ibu"
     t.float    "abv"
     t.text     "desc"
+    t.text     "photo_ref"
+    t.string   "brewdb_id"
   end
 
   create_table "beers_places", :id => false, :force => true do |t|

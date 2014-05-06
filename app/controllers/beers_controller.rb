@@ -53,9 +53,10 @@ class BeersController < ApplicationController
     a        = response["data"]
     name     = a["name"]
 
-    if @beer != nil
+    if @beer != nil && @place.beers.find(@beer.id) == nil
       @place.beers << @beer
-      redirect_to place_path(@place.id)
+      clear_session
+      redirect_to place_path(@place.id) and return
     else
       brewdb_id = beer_id
       photo_ref = a["labels"]["medium"]
@@ -66,8 +67,7 @@ class BeersController < ApplicationController
       add_beer  = {name: name, abv: abv, ibu: ibu, brewery: brewery, desc: desc, brewdb_id: beer_id, photo_ref: photo_ref }
       @beer     = @place.beers.create(add_beer)
     end
-    session[:brewdb_id] = nil
-    session[:beer_name] = nil
+    clear_session
 
     respond_to do |format|
       if @beer.save

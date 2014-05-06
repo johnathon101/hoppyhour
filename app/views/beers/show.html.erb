@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= image_tag @beer.photo_ref %>
 <p>
   <b>Brewery:</b>
   <%= @beer.brewery %>
@@ -22,5 +22,3 @@
     <%= link_to place.name, place_path(place.id) %>
   <% end %>
 </p>
-
-<%= image_tag @beer.photo_ref %>

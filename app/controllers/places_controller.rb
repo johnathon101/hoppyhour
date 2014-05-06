@@ -3,11 +3,13 @@ class PlacesController < ApplicationController
   # GET /places.json
 
   def index
-    @places = Place.all
+    @places = Place.all.sort_by &:name
     if params["brewdb_id"]
       session["brewdb_id"] = params["brewdb_id"]
       session["beer_name"] = params["beer_name"]
-    end
+    elsif params["beer_id"]
+      session["beer_id"] = params["beer_id"]
+  end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @places }
@@ -18,6 +20,13 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @place = Place.find(params[:id])
+    if session[:beer_id]
+      add_beer = Beer.find(session[:beer_id])
+      @place.beers << add_beer
+      clear_session
+    end
+
+
     @beers = @place.beers.all
     @foods = @place.foods.all
     respond_to do |format|

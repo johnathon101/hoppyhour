@@ -1,3 +1,4 @@
 <% @beers.each do |beer| %>
-  <%= beer.name %><br>
+  <center><%= link_to beer.name, show_beer_path(beer.id) %></center><br>
+  <h6><center><%= link_to "Add To A Hoppy Hour Location", places_path(beer_id: beer.id) %></center></h6><br>
 <% end %>

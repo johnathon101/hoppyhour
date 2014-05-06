@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
         return false
     end
   end
+
+  def clear_session
+    session[:brewdb_id] = nil
+    session[:beer_name] = nil
+    session[:brew_id] = nil
+  end
 end

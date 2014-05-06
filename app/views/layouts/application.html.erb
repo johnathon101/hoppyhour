@@ -11,11 +11,11 @@
   <div id="head_image">
     <%= image_tag "hoppy160.png" %>
   </div>
-  
+
   <div id="top_logo_text">
     <%= image_tag ("hoppytext.png")%>
   </div>
-  
+
   <div id="search_block" class ="cf">
     <div id = "food_search">
       <%= form_tag("/food_search", method: "get") do %>
@@ -24,7 +24,7 @@
         <% submit_tag("Search") %>
       <% end %>
     </div>
-  
+
     <div id= "beer_search">
       <%= form_tag("/beer_search", method: "get") do %>
         <%= label_tag(:beer_query, "Thirsty?:") %>
@@ -43,16 +43,20 @@
       <li><%=link_to("Food Specials", foods_index_path) %></li>
       <li><%=link_to("Beer List", beers_index_path) %></li>
       <%= form_tag(beers_results_path(:method=>'post')) do %>
-        <li><%= text_field_tag "brewdb_query", "BrewDB Search" %></li>
+        <li><%= text_field_tag "brewdb_query", "Beer Search" %></li>
         <li><%= submit_tag 'Search' %></li>
-      <% end %>  
+      <% end %>
+      <%= form_tag places_results_path do %>
+        <%= text_field_tag :query, "Place Search" %><br>
+        <%= submit_tag "Search" %><br>
+      <% end %>
       <% if current_user %>
         <li>Logged in as <%= current_user.email %></li>
         <li><%= link_to "Log-Out", logout_path %></li>
       <% else %>
         <li><%= link_to "Log-In", login_path %></li>
         <li><%= link_to "Sign-Up", signup_path %></li>
-       
+
       <% end %>
     </ul>
   </div>
@@ -61,19 +65,19 @@
   </div>
 </body>
 <footer class="clear">
-  
+
   <div id="ocs_logo">
     <%= image_tag "OCSlogo.png" %>
   </div>
-  
+
   <div id="creator">
-    <h1><a href = "http://johnathon101.github.io/journal/">#Johnathon Lueth</a></h1>
+    <h1><a href = "http://johnathon101.github.io/journal/">Johnathon Lueth</a></h1>
   </div>
-  
+
   <div id="social_media">
-  
+
   </div>
-  
+
 </footer>
 </div>
 </html>

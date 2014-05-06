@@ -49,15 +49,17 @@ class BeersController < ApplicationController
 
     beer_id = session[:brewdb_id] || params[:brew_id]
     @beer = Beer.where(:brewdb_id => beer_id).first
-    response = JSON.load(open("http://api.brewerydb.com/v2/beer/#{beer_id}?key=#{ENV["BREWDB_KEY"]}&withBreweries=Y"))
-    a        = response["data"]
-    name     = a["name"]
-
-    if @beer != nil && @place.beers.find(@beer.id) == nil
+    check_db = @place.beers.where(:id => @beer.id).first
+    if @beer != nil && check_db == nil
       @place.beers << @beer
       clear_session
       redirect_to place_path(@place.id) and return
+    elsif @beer != nil && check_db != nil
+      redirect_to place_path(@place.id) and return
     else
+      response = JSON.load(open("http://api.brewerydb.com/v2/beer/#{beer_id}?key=#{ENV["BREWDB_KEY"]}&withBreweries=Y"))
+      a        = response["data"]
+      name     = a["name"]
       brewdb_id = beer_id
       photo_ref = a["labels"]["medium"]
       abv       = a["abv"]

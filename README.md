@@ -11,8 +11,8 @@ so the accurate data is a premium. Future enhancements include either a JSON
 parse or html scrape off of an aggregator site at least until the database begins
 to populate further.
 Hoppyhour is built with three css media queries ranges to scale for many devices.
-  - Improvement over beta, .. no css responsiveness
-BrewDB is now integrated into adding beer into a place.
+  - CSS Responsiveness w/ Media Queries
+  - BrewDB is now integrated into adding beer into a place.
   - Initial version only used name and was not as informative.
   - Currently Name, Brewery, Description, ABV, IBU are being stored.
 Place is now storing lon/lat data to provide like queries for WorkHang.

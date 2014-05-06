@@ -51,9 +51,9 @@ class BeersController < ApplicationController
     response = JSON.load(open("http://api.brewerydb.com/v2/beer/#{beer_id}?key=#{ENV["BREWDB_KEY"]}&withBreweries=Y"))
     a        = response["data"]
     name     = a["name"]
-    check_duplicate = Place.find_by_name(name).first
+    check_duplicate = Beer.find_by_name(name)
 
-    if check_duplicate && check_duplicate.place_id != @place.id
+    if check_duplicate != nil && check_duplicate.place_id != @place.id
       redirect_to(place_beer_path(@place.id,check_duplicate.id))
     else
       abv      = a["abv"]

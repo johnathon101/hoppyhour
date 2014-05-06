@@ -14,6 +14,12 @@
   </p>
 </div>
 
+<div id ="add_beer">
+  <% if session[:brewdb_id] %>
+      <%=link_to "Add #{session[:beer_name]} to #{@place.name}?", add_beer_path(place_id: @place.id,brew_id: session["brewdb_id"]), {:method => :post, :action => :create} %>
+  <% end %>
+</div>
+
 <div id="place_beers">
     <h3>Beer Specials</h3>
   <ul>
@@ -33,7 +39,7 @@
         <h5><%= food.days %></h5></li>
       <% end %>
   </ul>
-</div> 
+</div>
 
 
 <%= link_to 'Edit', edit_place_path(@place) %> |

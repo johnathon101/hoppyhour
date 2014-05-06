@@ -2,10 +2,9 @@
 <h3>Please choose a result:</h3>
 <% @beer_search["data"].each do |beer| %>
   <ul>
-    <% binding.pry %>
     <li><%= link_to "Is It On Tap?", beer_search_path(:beer_query => beer["name"]) %>
     <li>Name: <%= beer["name"] %></li>
-    <li><%= link_to "Add This Beer To A Location-", places_path(:brewdb_id => beer["id"]) %>
+    <li><%= link_to "Add This Beer To A Location-", places_path(:brewdb_id => beer["id"], :beer_name => beer["name"]) %>
     <li>Description:<br> <%=  beer["description"] %></li>
   </ul>
   <br>

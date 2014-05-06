@@ -65,7 +65,7 @@ class BeersController < ApplicationController
     end
     session[:brewdb_id] = nil
     session[:beer_name] = nil
-
+    
     respond_to do |format|
       if @beer.save
         format.html { redirect_to place_path(@place.id), notice: 'Beer was successfully created.' }

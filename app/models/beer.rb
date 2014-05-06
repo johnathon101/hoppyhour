@@ -1,6 +1,6 @@
 class Beer < ActiveRecord::Base
   attr_accessible :brewery, :desc, :name, :place_id, :abv, :ibu
-  belongs_to :places
+  has_and_belongs_to_many :places
   # Public: Retrieve JSON response from BrewDB and display it for the user.
   #
   # beer - params[:query] - user input.

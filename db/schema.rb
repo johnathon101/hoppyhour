@@ -11,18 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140506033607) do
+ActiveRecord::Schema.define(:version => 20140506050349) do
 
   create_table "beers", :force => true do |t|
     t.string   "brewery"
     t.string   "name"
-    t.integer  "place_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.float    "ibu"
     t.float    "abv"
     t.text     "desc"
   end
+
+  create_table "beers_places", :id => false, :force => true do |t|
+    t.integer "beer_id",  :null => false
+    t.integer "place_id", :null => false
+  end
+
+  add_index "beers_places", ["beer_id", "place_id"], :name => "index_beers_places_on_beer_id_and_place_id", :unique => true
 
   create_table "foods", :force => true do |t|
     t.string   "entree"

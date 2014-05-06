@@ -45,7 +45,25 @@ class BeersController < ApplicationController
   # POST /beers.json
   def create
     @place = Place.find(params[:place_id])
-    @beer = @place.beers.build(params[:beer])
+    #We get the beer id from the params, or the last time the user searched brew db and clicked to add the user.
+
+    beer_id = session[:brewdb_id] || params[:brew_id]
+    response = JSON.load(open("http://api.brewerydb.com/v2/beer/#{beer_id}?key=#{ENV["BREWDB_KEY"]}&withBreweries=Y"))
+    a        = response["data"]
+    name     = a["name"]
+    check_duplicate = Place.find_by_name(name).first
+
+    if check_duplicate && check_duplicate.place_id != @place.id
+      redirect_to(place_beer_path(@place.id,check_duplicate.id))
+    else
+      abv      = a["abv"]
+      ibu      = a["ibu"]
+      brewery  = a["breweries"][0]["name"]
+      desc     = a["style"]["description"]
+      add_beer = {name: name, abv: abv, ibu: ibu, brewery: brewery, desc: desc}
+      @beer    = @place.beers.build(add_beer)
+    end
+
     respond_to do |format|
       if @beer.save
         format.html { redirect_to @beer, notice: 'Beer was successfully created.' }
@@ -91,10 +109,10 @@ class BeersController < ApplicationController
     @beer_search = Beer.brewdb_beer(params)
   end
   #Local Search for beers in the DB already allocated to a Place.
-  def search  
+  def search
     @hits = Beer.search_beer(params)
   end
-  
+
   def complete_index
     @beers = Beer.all
   end

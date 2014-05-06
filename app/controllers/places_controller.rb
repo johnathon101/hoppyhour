@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
+
   def index
     @places = Place.all
 
@@ -14,7 +15,9 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @place = Place.find(params[:id])
-
+    if params["brewdb_id"]
+      session["brewdb_id"] = params["brewdb_id"]
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @place }
@@ -41,9 +44,9 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.find(Place.check_and_create(params))
-    
+
     respond_to do |format|
-      if @place.save  
+      if @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render json: @place, status: :created, location: @place }
       else
@@ -80,9 +83,26 @@ class PlacesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def results
     @location = Place.search_google(params)
   end
-  
+
+  def workhang_place
+    #["lat", 41.259784], ["lon", -96.179262]
+
+    in_latitude = params[:lat].gsub("e", ".")
+    in_longitude = params[:lon].gsub("e", ".")
+    @place=Place.where(:lat => in_latitude, :lon => in_longitude).first
+
+
+    respond_to do |format|
+      if @place
+        format.json { render :json => @place.foods + @place.beers }.to_json
+      else
+        render json: {message: 'Resource not found'}, status: 404
+      end
+    end
+  end
+
 end

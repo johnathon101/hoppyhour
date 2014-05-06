@@ -20,7 +20,7 @@ class Beer < ActiveRecord::Base
     beer_search = JSON.load(open("http://api.brewerydb.com/v2/search/?key=#{ENV["BREWDB_KEY"]}&q=#{search_query}&type=beer"))
     return beer_search
   end
-  
+
   # Public: Add user selected beer to the database
   #
   # place - params[:place_id]  - The location from the results page where the beverage is served.
@@ -34,6 +34,7 @@ class Beer < ActiveRecord::Base
   #
   # Returns place id so user can be rerouted after object has beeen saved.
   def self.create_beer(params)
+
     place = params[:place_id]
     @beer = Beer.new
     @beer.place_id = place
@@ -41,7 +42,7 @@ class Beer < ActiveRecord::Base
     @beer.save
     return place
   end
-  
+
   # Public: Search the database for a user supplied query from the header.
   #
   # query - params[:q]  - The String from the user to be queried to the db
@@ -55,7 +56,7 @@ class Beer < ActiveRecord::Base
   #
   # Returns Beer objects where the beer.name attribute contains the term serached for after manual fuzzy alterations.
   def self.search_beer(params)
-    query = params[:beer_query].downcase 
+    query = params[:beer_query].downcase
     length=1+(query.size)/3
     term=query[1..length]
     return Beer.where("name like ?", "%#{term}%")

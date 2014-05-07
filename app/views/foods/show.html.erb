@@ -12,12 +12,19 @@
 
 <p>
   <b>Daytime:</b>
-  <%= @food.daytime %>
+  <%= @time[@food.daytime] %>
 </p>
 
 <p>
   <b>Days:</b>
-  <%= @food.days %>
+  <% @food.days.each do |day| %>
+    <%= day %>
+  <% end %>  
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @food.price %>
 </p>
 
 <p>

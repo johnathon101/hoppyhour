@@ -16,6 +16,7 @@ class FoodsController < ApplicationController
   def show
     @place = Place.find(params[:place_id])
     @food = Food.find(params[:id])
+    @time = ["Breakfast", "Lunch", "Dinner"]
 
     respond_to do |format|
       format.html # show.html.erb

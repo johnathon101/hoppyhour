@@ -20,12 +20,11 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @place = Place.find(params[:id])
-    if session[:beer_id]
+    if session[:beer_id] && !@place.beers.exists?
       add_beer = Beer.find(session[:beer_id])
       @place.beers << add_beer
-      clear_session
     end
-
+    clear_session
 
     @beers = @place.beers.all
     @foods = @place.foods.all

@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    clear_session
     logout
     redirect_to root_url, :notice => "Logged out!"
   end

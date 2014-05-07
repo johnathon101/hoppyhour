@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
       add_beer = Beer.find(session[:beer_id])
       @place.beers << add_beer
     end
-    clear_session
+    
 
     @beers = @place.beers.all
     @foods = @place.foods.all

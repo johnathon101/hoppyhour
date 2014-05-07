@@ -33,17 +33,18 @@
 
 <div id="place_foods">
   <h3>Food Specials</h3>
-  <ul>
     <% @foods.each do |food| %>
+      <ul>
       <li><%= food.entree %>, $<%= food.price %> </li>
-        <li><%= food.sides %></li>
-        <% food.days.each do |day| %>
-          <%= day %>,
-        <% end %>
+      <li><%= food.sides %></li>
+        <li><% food.days.each do |day| %>
+          <%= day %>
+        <% end %></li>
+      </ul>
       <% end %>
   </ul>
 </div>
-
+<%= link_to 'Add A Food Offering', new_place_food_path(@place.id) %><br>
 <% if admin? %>
   <%= link_to 'Edit', edit_place_path(@place) %> |
 <% end %>

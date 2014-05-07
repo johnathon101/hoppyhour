@@ -12,7 +12,7 @@ Hoppyhour2::Application.routes.draw do
 
   resources :users
   resources :sessions
-  root :to =>  "places#index"
+  root :to =>  "places#motd"
   get "/beer_search"=> "beers#search", :as => "beer_search"
   get "/food_search"=> "foods#search", :as => "food_search"
   post "/beers/results" =>"beers#results", :as => "beers_results"

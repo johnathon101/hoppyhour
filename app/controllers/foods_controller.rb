@@ -14,8 +14,8 @@ class FoodsController < ApplicationController
   # GET /foods/1
   # GET /foods/1.json
   def show
-    @place = Place.find(params[:place_id])
     @food = Food.find(params[:id])
+    @place = Place.find(params[:place_id])
     @time = ["Breakfast", "Lunch", "Dinner"]
 
     respond_to do |format|
@@ -41,6 +41,8 @@ class FoodsController < ApplicationController
   def edit
     @place = Place.find(params[:place_id])
     @food = Food.find(params[:id])
+    @time = ["Breakfast", "Lunch", "Dinner"]
+    @days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   end
 
   # POST /foods

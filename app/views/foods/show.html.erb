@@ -29,7 +29,7 @@
 
 <p>
   <b>Place:</b>
-  <%= Place.find(@food.place_id).name %>
+  <%= link_to @place.name, place_path(@place.id) %>
 </p>
 
 

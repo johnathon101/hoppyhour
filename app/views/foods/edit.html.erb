@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @food %> |
-<%= link_to 'Back', foods_path %>
+<%= link_to 'Show', place_food_path(params[:place_id], @food) %>
+<%= link_to 'Back', place_path(@place.id) %>

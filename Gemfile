@@ -37,8 +37,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'dotenv-rails', :groups => [:development, :test]
-require 'pry'
+gem 'pry'
 gem 'sorcery'
-gem 'negative_captcha'
 gem 'json'
 require 'open-uri'

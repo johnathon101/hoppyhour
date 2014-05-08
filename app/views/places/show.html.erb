@@ -36,7 +36,7 @@
   <h3>Food Specials</h3>
     <% @foods.each do |food| %>
       <ul>
-      <li><%= food.entree %>, $<%= sprintf('%02.2f', food.price) %> </li>
+      <li><%= food.entree %>, <%if food.price  %>$ <%= sprintf('%02.2f', food.price) %><%end%> </li>
       <li><%= food.sides %></li>
         <li><% food.days.each do |day| %>
           <%= day %>

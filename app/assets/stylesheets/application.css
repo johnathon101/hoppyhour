@@ -9,8 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require fancybox
  *= require_tree .
  */
+
 .cf:before,
 .cf:after {
     content: " "; /* 1 */
@@ -32,6 +34,10 @@ html,body{
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
  }
+ ul{
+     list-style: none;
+ }
+
 #pagewrap {
 	width: 100%;
   color:white;
@@ -123,7 +129,12 @@ html,body{
   padding:10px;
 }
 #sidebar ul{
-  list-style: none;
+
+}
+
+li:hover{
+  background-color:white;
+  border-radius:2px;
 }
 /*END BODY CONTENTS*/
 

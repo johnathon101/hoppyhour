@@ -17,21 +17,8 @@
   </div>
 
   <div id="search_block" class ="cf">
-    <div id = "food_search">
-      <%= form_tag("/food_search", method: "get") do %>
-        <%= label_tag(:food_query, "Hungry?:") %>
-        <%= text_field_tag(:food_query) %>
-        <% submit_tag("Search") %>
-      <% end %>
-    </div>
 
-    <div id= "beer_search">
-      <%= form_tag("/beer_search", method: "get") do %>
-        <%= label_tag(:beer_query, "Thirsty?:") %>
-        <%= text_field_tag(:beer_query) %>
-        <% submit_tag("Search") %>
-      <% end %>
-    </div>
+
   </div>
 </div>
 </head>
@@ -39,9 +26,9 @@
 <body class = "clear">
   <div id= "sidebar">
     <ul>
-      <li><%=link_to("Locations", places_path)%></li>
-      <li><%=link_to("Food Specials", foods_index_path) %></li>
-      <li><%=link_to("Beer List", beers_index_path) %></li>
+      <li><%=link_to("LOCATIONS", places_path)%></li>
+      <li><%=link_to("FOOD SPECIALS", foods_index_path) %></li>
+      <li><%=link_to("BEER LIST", beers_index_path) %></li>
       <%= form_tag(beers_results_path(:method=>'post')) do %>
         <li><%= text_field_tag "brewdb_query", "Beer Search" %></li>
         <li><%= submit_tag 'Search' %></li>

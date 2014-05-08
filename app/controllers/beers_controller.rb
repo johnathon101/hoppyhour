@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+  before_filter :admin?, :only => [:edit, :update, :destroy]
   # GET /beers
   # GET /beers.json
   def index
@@ -46,16 +47,16 @@ class BeersController < ApplicationController
   def create
     @place = Place.find(params[:place_id])
     #We get the beer id from the params, or the last time the user searched brew db and clicked to add the user.
-    
+
     beer_id = session[:brewdb_id] || params[:brew_id]
     @beer = Beer.where(:brewdb_id => beer_id).first
     if @beer != nil
       check_db = @place.beers.where(:id => @beer.id).first
-      if !check_db.exists?
-        @place.beers << @beer
-      elsif check_db.exists?
-        check_db = @place.beers.where(:id => @beer.id)
-      end
+        if check_db == nil
+          @place.beers << @beer
+        elsif check_db != nil
+          check_db = @place.beers.where(:id => @beer.id)
+        end
       clear_session
       redirect_to place_path(@place.id) and return
     else

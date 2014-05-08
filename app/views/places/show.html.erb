@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <div id= "details">
@@ -25,7 +26,7 @@
     <h3>Beer List</h3>
   <ul>
   <% @beers.each do |beer| %>
-    <li><h3><%= link_to beer.name, show_beer_path(beer.id) %></h3>
+    <li><h3><%= link_to beer.name, show_beer_path(beer.id), :class => "fancybox", :rel => "beer", :title => beer.name %></h3>
     <h5><%= beer.desc %></h5></li>
   <% end %>
   </ul>
@@ -35,17 +36,17 @@
   <h3>Food Specials</h3>
     <% @foods.each do |food| %>
       <ul>
-      <li><%= food.entree %>, $<%= food.price %> </li>
+      <li><%= food.entree %>, $<%= sprintf('%02.2f', food.price) %> </li>
       <li><%= food.sides %></li>
         <li><% food.days.each do |day| %>
           <%= day %>
-        <% end %></li>
-      </ul>
-      <% end %>
-  </ul>
+          <% end %>
+        </li></ul>
+    <% end %>
+
 </div>
 <%= link_to 'Add A Food Offering', new_place_food_path(@place.id) %><br>
 <% if admin? %>
-  <%= link_to 'Edit', edit_place_path(@place) %> |
+  <%= link_to 'Edit', edit_place_path(@place) %>
 <% end %>
 <%= link_to 'Back To HoppyHour Directory', places_path %>

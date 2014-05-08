@@ -1,7 +1,9 @@
-<% if @hits != [] %>
+<% if !@hits.blank? %>
   <% @hits.each do |hit| %>
-    <% @pl=Place.find(hit.place_id) %>
-    <%= hit.name %> is at <%= @pl.name %> 
+    <% @pl=hit.places.all %>
+      <% @pl.each do |pl| %>
+        <%= hit.name %> is at <%= pl.name %>
+      <% end %>
   <% end %>
 <% else %>
   Unfortunately it does not appear <%= params[:brewdb_query] || params[:beer_query] %> is available at a HoppyHour location. If you know some place it is available please create or add the location and beverage.

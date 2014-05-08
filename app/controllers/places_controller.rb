@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
-
+  before_filter :admin?, :only => [:edit, :update, :destroy]
   def index
     @places = Place.all.sort_by &:name
     if params["brewdb_id"]
@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
       add_beer = Beer.find(session[:beer_id])
       @place.beers << add_beer
     end
-    
+
 
     @beers = @place.beers.all
     @foods = @place.foods.all
@@ -114,7 +114,7 @@ class PlacesController < ApplicationController
       end
     end
   end
-  
+
   def motd
   end
 

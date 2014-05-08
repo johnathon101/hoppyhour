@@ -128,14 +128,11 @@ html,body{
   padding-bottom:80px;
   padding:10px;
 }
-#sidebar ul{
-
-}
-
-li:hover{
+#sidebar ul li{
   background-color:white;
   border-radius:2px;
 }
+
 /*END BODY CONTENTS*/
 
 footer {

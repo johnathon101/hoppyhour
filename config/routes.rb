@@ -15,6 +15,7 @@ Hoppyhour2::Application.routes.draw do
   root :to =>  "places#motd"
   get "/beer_search"=> "beers#search", :as => "beer_search"
   get "/food_search"=> "foods#search", :as => "food_search"
+post "/beers/destroy" => "beers#destroy", :as => "destroy_beer"
   post "/beers/results" =>"beers#results", :as => "beers_results"
   post "/places/results" => "places#results", :as => "places_results"
   get "/foods/all" => "foods#complete_index", :as => "foods_index"
@@ -23,6 +24,6 @@ Hoppyhour2::Application.routes.draw do
   get "/workhang/:lat/:lon" => "places#workhang_place", defaults: {format: :json}
   post "/add_beer" => "beers#create", :as => "add_beer"
   get "/beers/:id" => "beers#show", :as => "show_beer"
-  post "/beers/destroy" => "beers#destroy", :as => "destroy_beer"
+
 
 end

@@ -6,7 +6,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <div id ="head_container">
   <div id="head_image">
     <%= image_tag "hoppy160.png" %>
@@ -26,22 +25,22 @@
 <body class = "clear">
   <div id= "sidebar">
     <ul>
-      <li><%=link_to("LOCATIONS", places_path)%></li>
-      <li><%=link_to("FOOD SPECIALS", foods_index_path) %></li>
-      <li><%=link_to("BEER LIST", beers_index_path) %></li>
+      <li><h3><%=link_to("LOCATIONS", places_path)%></h3></li>
+      <li><h3><%=link_to("FOOD SPECIALS", foods_index_path) %></h3></li>
+      <li><h3><%=link_to("BEER LIST", beers_index_path) %></h3></li>
       <%= form_tag(beers_results_path(:method=>'post')) do %>
-        <li><%= text_field_tag "brewdb_query", "Beer Search" %></li>
-        <li><%= submit_tag 'Search' %></li>
+        <li><%= text_field_tag "brewdb_query", "Beer Search" %></h3></li>
+        <li><%= submit_tag 'Search' %></h3></li>
       <% end %>
       <%= form_tag places_results_path do %>
         <%= text_field_tag :query, "Place Search" %><br>
         <%= submit_tag "Search" %><br>
       <% end %>
       <% if current_user %>
-        <li><%= link_to "Log-Out", logout_path %></li>
+        <li><h3><%= link_to "Log-Out", logout_path %></h3></li>
       <% else %>
-        <li><%= link_to "Log-In", login_path %></li>
-        <li><%= link_to "Sign-Up", signup_path %></li>
+        <li><h3><%= link_to "Log-In", login_path %></h3></li>
+        <li><h3><%= link_to "Sign-Up", signup_path %></h3></li>
 
       <% end %>
     </ul>

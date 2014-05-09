@@ -127,10 +127,12 @@ html,body{
   background-color:#B6A68E;
   padding-bottom:80px;
   padding:10px;
+  text-align:left;
 }
-#sidebar ul li:hover{
+#sidebar ul li h3:hover{
   background-color:white;
   border-radius:2px;
+  width:auto;
 }
 
 /*END BODY CONTENTS*/
@@ -172,6 +174,9 @@ footer {
 	#sidebar {
 		width: 30%;
 	  float:left;
+    padding:auto;
+    margin:auto;
+    height:auto;
   }
 
   #footer {

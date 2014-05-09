@@ -1,5 +1,5 @@
-$( document ).ready(function() {
-  $('#brewdb_query').click(('#brewdb_query').val(""));
+$(document).ready(function() {
+  console.log("document ready");
 
   $("a.fancybox").fancybox({
     type: 'iframe',

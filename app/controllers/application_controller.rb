@@ -26,4 +26,7 @@ class ApplicationController < ActionController::Base
     session[:beer_name] = nil
     session[:brew_id] = nil
   end
+  def logout
+    session[:user_id] = nil
+  end
 end

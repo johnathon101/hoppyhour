@@ -1,4 +1,21 @@
-<% @beers.each do |beer| %>
-  <center><%= link_to beer.name, show_beer_path(beer.id) %></center><br>
-  <h6><center><%= link_to "Add To A Hoppy Hour Location", places_path(beer_id: beer.id) %></center></h6><br>
-<% end %>
+
+<table id = "beer_table">
+  <thead>
+    <th>Beer Name</th>
+    <th>Brewery</th>
+    <th>ABV:</th>
+    <th>IBU:</th>
+    <th>ADD</th>
+  </thead>
+  <tbody>
+    <% @beers.each do |beer| %>
+      <tr>
+        <td><%= link_to beer.name, show_beer_path(beer.id) %></td>
+        <td><%= beer.brewery %></td>
+        <td><%= beer.abv || "N/A"%>%</td>
+        <td><%= beer.ibu || "N/A"%></td>
+        <td><%= link_to "+ Location", places_path(beer_id: beer.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

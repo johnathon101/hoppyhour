@@ -1,6 +1,5 @@
 class FoodsController < ApplicationController
-  # GET /foods
-  # GET /foods.json
+
   def index
     @place = Place.find(params[:place_id])
     @foods = @place.foods
@@ -11,8 +10,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # GET /foods/1
-  # GET /foods/1.json
   def show
     @food = Food.find(params[:id])
     @place = Place.find(params[:place_id])
@@ -24,8 +21,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # GET /foods/new
-  # GET /foods/new.json
   def new
     @place = Place.find(params[:place_id])
     @days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -37,7 +32,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # GET /foods/1/edit
   def edit
     @place = Place.find(params[:place_id])
     @food = Food.find(params[:id])
@@ -45,8 +39,6 @@ class FoodsController < ApplicationController
     @days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   end
 
-  # POST /foods
-  # POST /foods.json
   def create
     @place = Place.find(params[:place_id])
     @food = @place.foods.build(params[:food])
@@ -62,8 +54,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # PUT /foods/1
-  # PUT /foods/1.json
   def update
     @place = Place.find(params[:place_id])
     @food = Food.find(params[:id])
@@ -79,8 +69,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # DELETE /foods/1
-  # DELETE /foods/1.json
   def destroy
     @place = Place.find(params[:place_id])
     @food = Food.find(params[:id])

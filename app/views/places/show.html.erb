@@ -4,7 +4,9 @@
 <div id= "details">
   <p>
     <h1><%= @place.name %><br></h1>
-    Latitude: <%= @place.lat %>, Longitude: <%= @place.lon %><br>
+    <% if !@place.lat.blank? && !@place.lon.blank? %>
+      Latitude: <%= @place.lat %>, Longitude: <%= @place.lon %><br>
+    <%end%>
     <%= @place.address %>, <%= @place.city %>, <%= @place.state %>
   </p>
 </div>
@@ -26,8 +28,8 @@
     <h3>Beer List</h3>
   <ul>
   <% @beers.each do |beer| %>
-    <li><h3><%= link_to beer.name, show_beer_path(beer.id), :class => "fancybox", :rel => "beer", :title => beer.name %></h3>
-    <h5><%= beer.desc %></h5></li>
+    <li><h3><%= link_to beer.name, show_beer_path(beer.id), :class => "fancybox", :rel => "beer", :title => beer.name %><%= link_to "No Longer Here", destroy_beer_path(@place.id, beer.id)%></h3>
+    <h5 class="beer_desc"><%= beer.desc %></h5></li>
   <% end %>
   </ul>
 </div>

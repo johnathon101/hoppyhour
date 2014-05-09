@@ -23,5 +23,6 @@ Hoppyhour2::Application.routes.draw do
   get "/workhang/:lat/:lon" => "places#workhang_place", defaults: {format: :json}
   post "/add_beer" => "beers#create", :as => "add_beer"
   get "/beers/:id" => "beers#show", :as => "show_beer"
+  post "/beers/destroy" => "beers#destroy", :as => "destroy_beer"
 
 end

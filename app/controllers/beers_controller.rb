@@ -1,7 +1,6 @@
 class BeersController < ApplicationController
   before_filter :admin?, :only => [:edit, :update, :destroy]
-  # GET /beers
-  # GET /beers.json
+
   def index
     @place =Place.find(params[:place_id])
     @beers = @place.beers
@@ -12,8 +11,6 @@ class BeersController < ApplicationController
     end
   end
 
-  # GET /beers/1
-  # GET /beers/1.json
   def show
 
     @beer = Beer.find(params[:id])
@@ -24,8 +21,6 @@ class BeersController < ApplicationController
     end
   end
 
-  # GET /beers/new
-  # GET /beers/new.json
   def new
     @place = Place.find(params[:place_id])
     @beer = Beer.new
@@ -36,14 +31,11 @@ class BeersController < ApplicationController
     end
   end
 
-  # GET /beers/1/edit
   def edit
     @place = Place.find(params[:place_id])
     @beer = Beer.find(params[:id])
   end
 
-  # POST /beers
-  # POST /beers.json
   def create
     @place = Place.find(params[:place_id])
     #We get the beer id from the params, or the last time the user searched brew db and clicked to add the user.
@@ -85,8 +77,6 @@ class BeersController < ApplicationController
     end
   end
 
-  # PUT /beers/1
-  # PUT /beers/1.json
   def update
     @place = Place.find(params[:place_id])
     @beer = Beer.find(params[:id])
@@ -102,12 +92,10 @@ class BeersController < ApplicationController
     end
   end
 
-  # DELETE /beers/1
-  # DELETE /beers/1.json
   def destroy
     @place = Place.find(params[:place_id])
     @beer = Beer.find(params[:id])
-    @beer.destroy
+    @beer.places.destroy
 
     respond_to do |format|
       format.html { redirect_to place_path(@place.id) }

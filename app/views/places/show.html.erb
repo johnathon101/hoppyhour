@@ -28,7 +28,7 @@
     <h3>Beer List</h3>
   <ul>
   <% @beers.each do |beer| %>
-    <li><h3><%= link_to beer.name, show_beer_path(beer.id), :class => "fancybox", :rel => "beer", :title => beer.name %><%= link_to "No Longer Here", destroy_beer_path(@place.id, beer.id)%></h3>
+    <li><h3><%= link_to beer.name, show_beer_path(beer.id), :class => "fancybox", :rel => "beer", :title => beer.name %></h3>
     <h5 class="beer_desc"><%= beer.desc %></h5></li>
   <% end %>
   </ul>

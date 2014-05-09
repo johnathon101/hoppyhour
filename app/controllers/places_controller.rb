@@ -90,8 +90,8 @@ class PlacesController < ApplicationController
   def workhang_place
     #["lat", 41.259784], ["lon", -96.179262]
 
-    in_latitude = params[:lat].("e", ".")
-    in_longitude = params[:lon].("e", ".")
+    in_latitude = params[:lat].gsub("e", ".")
+    in_longitude = params[:lon].gsub("e", ".")
     @place=Place.where(:lat => in_latitude, :lon => in_longitude).first
 
 

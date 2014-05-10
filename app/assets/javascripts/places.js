@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("document ready");
 
   $("a.fancybox").fancybox({
     type: 'iframe',
@@ -9,7 +8,7 @@ $(document).ready(function() {
     transitionIn: 'elastic',
     transitionOut: 'elastic',
     easingOut: 'easeOutSine',
-    cyclic: true
+    cyclic: true,
   });
 
-}); 
+});

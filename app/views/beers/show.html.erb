@@ -1,24 +1,45 @@
 <p id="notice"><%= notice %></p>
-<%= image_tag @beer.photo_ref %>
-<p>
-  <b>Brewery:</b>
-  <%= @beer.brewery %>
-</p>
+<div id = "beer_image" class="cf">
+    <%= image_tag @beer.photo_ref %>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @beer.name %>
-</p>
+<div id= "information" class="cf">
+  <p>
+    <b>Brewery:</b>
+    <%= @beer.brewery %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @beer.desc %><br>
-  ABV: <%= @beer.abv || "Not Available"%> IBU: <%=@beer.ibu || "Not Available"%>
-</p>
 
-<p>
-  <b>Places:</b>
-  <% @places.each do |place| %>
-    <%= link_to place.name, place_path(place.id) %>
-  <% end %>
-</p>
+  <p>
+    <b>Name:</b>
+    <%= @beer.name %>
+  </p>
+
+  <p>
+    <b>ABV:</b> <%= @beer.abv || "Not Available"%> <b>IBU:</b> <%=@beer.ibu || "Not Available"%>
+  </p>
+</div>
+
+<div id= "availability" class= "cf">
+  <p>
+    <b>Places:</b>
+    <ul>
+    <% if params[:iframe] != "true" %>
+      <% @places.each do |place| %>
+        <li><%= link_to place.name, place_path(place.id) %></li>
+      <% end %>
+    <% else %>
+      <% @places.each do |place| %>
+        <li><%= place.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  </p>
+</div>
+
+<div id= "description" class ="cf">
+  <p>
+    <b>Description:</b>
+    <%= @beer.desc %><br>
+  </p>
+</div>

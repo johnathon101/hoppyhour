@@ -26,9 +26,10 @@ class PlacesController < ApplicationController
 
     @beers = @place.beers.all
     @foods = @place.foods.all
+
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @place }
+        format.html # show.html.erb
+        format.json { render json: @place }
     end
   end
 

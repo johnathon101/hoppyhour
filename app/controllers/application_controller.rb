@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       return nil
     end
   end
-  
+
   def not_authenticated
     redirect_to login_url, :alert => "First login to access this page."
   end

@@ -15,9 +15,15 @@ class BeersController < ApplicationController
 
     @beer = Beer.find(params[:id])
     @places = @beer.places.all
+
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @beer }
+      if params[:iframe] == "true"
+        format.html {render layout: "beer_box"}# show.html.erb
+        format.json { render json: @place, :layout => false }
+      else
+        format.html # show.html.erb
+        format.json { render json: @beer }
+      end
     end
   end
 

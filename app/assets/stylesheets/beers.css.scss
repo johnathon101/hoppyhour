@@ -1,3 +1,25 @@
 // Place all the styles related to the beers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#beer_image{
+  float:left;
+  width:50%;
+}
+#information{
+  float:left;
+  width:50%;
+  font-family: Verdana, Geneva, sans-serif;
+}
+#description{
+  float:left;
+  width:90%;
+  font-family: Verdana, Geneva, sans-serif;
+  margin-left:5%;
+  margin-right:5%;
+}
+#availability{
+  float:left;
+  width:40%;
+  font-family: Verdana, Geneva, sans-serif;
+  height:auto;
+}

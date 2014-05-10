@@ -29,6 +29,9 @@
   <ul>
   <% @beers.each do |beer| %>
     <li><h3><%= link_to beer.name, show_beer_path(beer.id, :iframe => true), :class => "fancybox", :rel => "beer", :title => beer.name, :remote => true %></h3>
+    <%if admin?%>
+      <li><h4><%=link_to "Remove", destroy_beer_path(beer_id: beer.id, place_id: @place.id), "method"=> "post"%>
+    <% end %>   
 
     <h5 class="beer_desc"><%= beer.desc %></h5></li>
   <% end %>

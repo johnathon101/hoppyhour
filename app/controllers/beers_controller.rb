@@ -102,9 +102,9 @@ class BeersController < ApplicationController
 
   def destroy
     @place = Place.find(params[:place_id])
-    @beer = Beer.find(params[:id])
-    @beer.places.destroy
-
+    @beer = Beer.find(params[:beer_id])
+    @del_beer = @place.beers.find(@beer.id)
+    @del_beer.destroy
     respond_to do |format|
       format.html { redirect_to place_path(@place.id) }
       format.json { head :no_content }
@@ -122,5 +122,6 @@ class BeersController < ApplicationController
   def complete_index
     @beers = Beer.all
   end
+
 
 end

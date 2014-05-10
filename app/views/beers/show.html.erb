@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div id = "beer_image" class="cf">
+  <% if !@beer.photo_ref.blank? %>
     <%= image_tag @beer.photo_ref %>
+  <% else %>
+      <h2>No Image Available<h2>
+  <% end %>
 </div>
 
 <div id= "information" class="cf">

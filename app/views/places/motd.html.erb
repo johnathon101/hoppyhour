@@ -3,9 +3,9 @@
 <div id="beer_grid">
   <% @beers.each do |beer|%>
     <% if !beer.photo_ref.blank? %>
-      <%= link_to image_tag(beer.photo_ref), show_beer_path(beer.id) %>
+      <%= link_to image_tag(beer.photo_ref), show_beer_path(beer.id), class:"beer_image" %>
     <% else %>
-      <%= link_to image_tag("beermug.png"), show_beer_path(beer.id) %>
+      <%= link_to image_tag("beermug.png"), show_beer_path(beer.id), class:"beer_image" %>
     <%end%>
   <% end %>
 </div>

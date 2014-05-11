@@ -137,6 +137,10 @@ html,body{
 #beer_grid a:hover{
   opacity:.5;
 }
+.beer_image{
+  width:33%;
+  float:left;
+}
 
 /*END BODY CONTENTS*/
 

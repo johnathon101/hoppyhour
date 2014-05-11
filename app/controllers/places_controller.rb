@@ -58,7 +58,7 @@ class PlacesController < ApplicationController
     clear_session
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Successfully added to Hoppy Hour!.' }
+        format.html { redirect_to @place, notice: 'Successfully  to Hoppy Hour!.' }
         format.json { render json: @place, status: :created, location: @place }
       else
         format.html { render action: "new" }

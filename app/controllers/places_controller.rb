@@ -7,8 +7,8 @@ class PlacesController < ApplicationController
       session["brewdb_id"] = params["brewdb_id"]
       session["beer_name"] = params["beer_name"]
     elsif params["beer_id"]
-      session["beer_id"] = params["beer_id"]
-  end
+      session[:beer_id] = params["beer_id"]
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @places }
@@ -16,15 +16,24 @@ class PlacesController < ApplicationController
   end
 
   def show
+
     @place = Place.find(params[:id])
-    if session[:beer_id] && !@place.beers.exists?
+    if session[:beer_id]
       add_beer = Beer.find(session[:beer_id])
-      @place.beers << add_beer
-      clear_session
+      begin
+        @place.beers.find(add_beer.id)
+      rescue ActiveRecord::RecordNotFound
+        @place.beers << add_beer
+        flash[:notice] = "Beer Successfully Added!"
+      rescue ActiveRecord::RecordNotUnique
+        flash[:notice] = "Duplicate Entry!"
+      end
     end
 
+    clear_session
 
-    @beers = @place.beers.all
+
+    @beers = @place.beers.all.sort_by &:name
     @foods = @place.foods.all
 
     respond_to do |format|

@@ -120,7 +120,7 @@ class BeersController < ApplicationController
   end
 
   def complete_index
-    @beers = Beer.all
+    @beers = Beer.all.sort_by &:name
   end
 
 

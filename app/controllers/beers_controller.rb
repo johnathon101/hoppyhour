@@ -45,8 +45,11 @@ class BeersController < ApplicationController
   def create
     @place = Place.find(params[:place_id])
     #We get the beer id from the params, or the last time the user searched brew db and clicked to add the user.
-
-    beer_id = session[:brewdb_id] || params[:brew_id]
+    if session[:brewdb_id]!=nil
+      beer_id = session[:brewdb_id]
+    else
+      beer_id = session[:beer_id]
+    end
     @beer = Beer.where(:brewdb_id => beer_id).first
     photo_ref = Array.new
     if @beer != nil

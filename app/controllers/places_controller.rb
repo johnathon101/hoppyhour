@@ -16,22 +16,20 @@ class PlacesController < ApplicationController
   end
 
   def show
-
     @place = Place.find(params[:id])
-    if session[:beer_id]
+    if session[:beer_id]!= nil
       add_beer = Beer.find(session[:beer_id])
       begin
         @place.beers.find(add_beer.id)
       rescue ActiveRecord::RecordNotFound
         @place.beers << add_beer
+        clear_session
         flash[:notice] = "Beer Successfully Added!"
       rescue ActiveRecord::RecordNotUnique
         flash[:notice] = "Duplicate Entry!"
+        clear_session
       end
     end
-
-    clear_session
-
 
     @beers = @place.beers.all.sort_by &:name
     @foods = @place.foods.all

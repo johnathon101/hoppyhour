@@ -115,6 +115,7 @@ class PlacesController < ApplicationController
   end
 
   def motd
+    @beers= Beer.where(:photo_ref != nil, :limit =>10)
   end
 
 end

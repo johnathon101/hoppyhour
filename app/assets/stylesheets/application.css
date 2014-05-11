@@ -134,6 +134,9 @@ html,body{
   border-radius:2px;
   width:auto;
 }
+#beer_grid a:hover{
+  opacity:.5;
+}
 
 /*END BODY CONTENTS*/
 

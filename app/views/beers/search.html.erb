@@ -2,7 +2,7 @@
   <% @hits.each do |hit| %>
     <% @pl=hit.places.all %>
       <% @pl.each do |pl| %>
-        <%= hit.name %> is at <%= pl.name %>
+        <%= link_to hit.name, show_beer_path(hit.id) %> is at <%=link_to pl.name,place_path(pl.id) %>
       <% end %>
   <% end %>
 <% else %>

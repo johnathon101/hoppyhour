@@ -5,12 +5,12 @@ module ApplicationHelper
     else
       return nil
     end
-end
+  end
 
   def admin?
     if current_user
       current_user.email == 'ja.lueth@gmail.com'
     end
   end
-  
+
 end

@@ -17,7 +17,7 @@ class Beer < ActiveRecord::Base
     beer = params[:brewdb_query]
     search_query = (beer).downcase.strip.gsub(' ','+')
     #Send search query to google to find the location(Validate Location)
-    beer_search = JSON.load(open("http://api.brewerydb.com/v2/search/?key=#{ENV["BREWDB_KEY"]}&q=#{search_query}&type=beer"))
+    beer_search = JSON.load(open("http://api.brewerydb.com/v2/search/?key=#{ENV["BREWDB_KEY"]}&q=#{search_query}&type=beer&withBreweries=Y"))
     return beer_search
   end
 

@@ -1,11 +1,14 @@
 
-<h3>Please choose a result:</h3>
-<% @beer_search["data"].each do |beer| %>
-  <ul>
-    <li><%= link_to "Is It On Tap?", beer_search_path(:beer_query => beer["name"]) %>
-    <li>Name: <%= beer["name"] %></li>
-    <li><%= link_to "Add This Beer To A Location-", places_path(:brewdb_id => beer["id"], :beer_name => beer["name"]) %>
-    <li>Description:<br> <%=  beer["description"] %></li>
-  </ul>
-  <br>
+<% if !@beer_search["data"].blank? %>
+  <h3>Please choose a result:</h3>
+    <% @beer_search["data"].each do |beer| %>
+    <ul>
+      <li><%= link_to "Is It On Tap?", beer_search_path(:beer_query => beer["name"]) %>
+        <li>Brewery: <%= beer["breweries"][0]["name"] %>, Name: <%= beer["name"] %></li>
+        <li><%= link_to "Add This Beer To A Location-", places_path(:brewdb_id => beer["id"], :beer_name => beer["name"]) %>
+        <li>Description:<br> <%=  beer["description"] %></li>
+      </ul>
+    <%end%>
+<% else %>
+  <h3>No Beers Found</h3>
 <% end %>

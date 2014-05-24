@@ -37,11 +37,11 @@
       <li><h3><%=link_to("FOOD SPECIALS", foods_index_path) %></h3></li>
       <li><h3><%=link_to("BEER LIST", beers_index_path) %></h3></li>
       <%= form_tag(beers_results_path(:method=>'post')) do %>
-        <li><%= text_field_tag "brewdb_query", "Beer Search" %></h3></li>
+        <li><%= text_field_tag "brewdb_query", nil, :placeholder=> "Beer Search" %></h3></li>
         <li><%= submit_tag 'Search' %></h3></li>
       <% end %>
       <%= form_tag places_results_path do %>
-        <%= text_field_tag :query, "Place Search" %><br>
+        <%= text_field_tag :query, nil, :placeholder => "Place Search" %><br>
         <%= submit_tag "Search" %><br>
       <% end %>
       <% if current_user %>

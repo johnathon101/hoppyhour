@@ -41,7 +41,7 @@ html,body{
 #pagewrap {
 	width: 100%;
   color:white;
-  font-family:font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
   min-height:100%;
   position:relative;
 }

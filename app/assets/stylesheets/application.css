@@ -44,6 +44,8 @@ html,body{
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
   min-height:100%;
   position:relative;
+  margin: 0 0 -80px 0px;
+  
 }
 
 
@@ -118,21 +120,49 @@ html,body{
 #content input, label {
     float:left;
 }
-
+#content a{
+  text-decoration:none;
+  color:#4E402B;  
+}
+#content td{
+  text-decoration:none;
+  color:#4E402B;  
+}
+#content tr:hover{
+  background-color:white;
+}
+#content th{
+  color:black;
+}
+#content h1{
+  color:black;
+}
 #sidebar {
-	width: 25%;
+	width: 20%;
 	float: left;
   clear: left;
   color:blue;
   background-color:#B6A68E;
   padding-bottom:80px;
   padding:10px;
-  text-align:left;
+  text-align:center;
+  text-decoration:none;
 }
 #sidebar ul li h3:hover{
   background-color:white;
   border-radius:2px;
   width:auto;
+  
+}
+#sidebar ul{
+  background-color:black;
+  border-radius:2px;
+  padding:10px 5px;
+  color:#91672D;
+}
+#sidebar ul li a{
+  text-decoration:none;
+  color:#91672D;
 }
 #beer_grid a:hover{
   opacity:.5;
@@ -257,7 +287,9 @@ footer {
     clear:both;
     text-align:center;
   }
-
+  #sidebar ul a{
+    padding:0 0;
+  }
   #sidebar p{
     display:inline-block;
   }
@@ -274,7 +306,7 @@ footer {
 
 	#main-nav a {
 		font-size: 90%;
-		padding: 10px 8px;
+		padding: 0px 0px;
 	}
 
 }

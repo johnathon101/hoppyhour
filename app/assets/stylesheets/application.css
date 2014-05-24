@@ -128,6 +128,9 @@ html,body{
   text-decoration:none;
   color:#4E402B;  
 }
+#td_add_location{
+  width:10%;
+}
 #content tr:hover{
   background-color:white;
 }
@@ -159,10 +162,15 @@ html,body{
   border-radius:2px;
   padding:10px 5px;
   color:#91672D;
+
+}
+#sidebar ul li{
+    padding:10px 10px;
 }
 #sidebar ul li a{
   text-decoration:none;
   color:#91672D;
+
 }
 #beer_grid a:hover{
   opacity:.5;
@@ -287,7 +295,7 @@ footer {
     clear:both;
     text-align:center;
   }
-  #sidebar ul a{
+  #sidebar ul li{
     padding:0 0;
   }
   #sidebar p{

@@ -14,7 +14,7 @@
         <td><%= beer.brewery %></td>
         <td><%= beer.abv || "N/A"%>%</td>
         <td><%= beer.ibu || "N/A"%></td>
-        <td><%= link_to "+ Location", places_path(beer_id: beer.id) %></td>
+        <td id="td_add_location"><%= link_to image_tag('addloc.png'), places_path(beer_id: beer.id) %></td>
       </tr>
     <% end %>
   </tbody>

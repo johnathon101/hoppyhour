@@ -33,22 +33,22 @@
 <body class = "clear">
   <div id= "sidebar">
     <ul>
-      <li><h3><%=link_to("LOCATIONS", places_path)%></h3></li>
-      <li><h3><%=link_to("FOOD SPECIALS", foods_index_path) %></h3></li>
-      <li><h3><%=link_to("BEER LIST", beers_index_path) %></h3></li>
+      <li><%=link_to("LOCATIONS", places_path)%></h3></li>
+      <li><%=link_to("FOOD SPECIALS", foods_index_path) %></h3></li>
+      <li><%=link_to("BEER LIST", beers_index_path) %></h3></li>
       <%= form_tag(beers_results_path(:method=>'post')) do %>
-        <li><%= text_field_tag "brewdb_query", nil, :placeholder=> "Beer Search" %></h3></li>
-        <li><%= submit_tag 'Search' %></h3></li>
+        <li><%= text_field_tag "brewdb_query", nil, :placeholder=> "Beer Search" %></li>
+        <li><%= submit_tag 'Search' %></li>
       <% end %>
       <%= form_tag places_results_path do %>
-        <%= text_field_tag :query, nil, :placeholder => "Place Search" %><br>
-        <%= submit_tag "Search" %><br>
+        <%= text_field_tag :query, nil, :placeholder => "Place Search" %></li>
+        <li><%= submit_tag "Search" %></li>
       <% end %>
       <% if current_user %>
-        <li><h3><%= link_to "Log-Out", logout_path %></h3></li>
+        <li><%= link_to "Log-Out", logout_path %></li>
       <% else %>
-        <li><h3><%= link_to "Log-In", login_path %></h3></li>
-        <li><h3><%= link_to "Sign-Up", signup_path %></h3></li>
+        <li><%= link_to "Log-In", login_path %></li>
+        <li><%= link_to "Sign-Up", signup_path %></li>
 
       <% end %>
     </ul>

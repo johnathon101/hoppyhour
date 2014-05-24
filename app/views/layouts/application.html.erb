@@ -31,7 +31,10 @@
 </head>
 
 <body class = "clear">
+  
   <div id= "sidebar">
+    <%= image_tag('full.png', class: "full-menu glass") %>
+    <%= image_tag('empty.png', class: "empty-menu glass") %>
     <ul>
       <li><%=link_to("LOCATIONS", places_path)%></h3></li>
       <li><%=link_to("FOOD SPECIALS", foods_index_path) %></h3></li>
@@ -67,6 +70,7 @@
     <% end %>
     <%= yield %>
   </div>
+
 </body>
 <footer class="clear">
 

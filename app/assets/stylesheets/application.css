@@ -45,7 +45,7 @@ html,body{
   min-height:100%;
   position:relative;
   margin: 0 0 -80px 0px;
-  
+
 }
 
 
@@ -122,11 +122,11 @@ html,body{
 }
 #content a{
   text-decoration:none;
-  color:#4E402B;  
+  color:#4E402B;
 }
 #content td{
   text-decoration:none;
-  color:#4E402B;  
+  color:#4E402B;
 }
 #td_add_location{
   width:10%;
@@ -156,7 +156,7 @@ html,body{
   background-color:white;
   border-radius:2px;
   width:auto;
-  
+
 }
 #sidebar ul{
   background-color:black;
@@ -254,7 +254,7 @@ footer {
 
 @media screen and (max-width: 650px) {
 
-	
+
   #header {
 		height: auto;
     width:100%;
@@ -328,13 +328,12 @@ footer {
     display:block;
   }
   #sidebar .glass.empty-menu {
-   display:none; 
-   -webkit-transform: rotate(90deg); 
-   -moz-transform: rotate(90deg); 
+   display:none;
+   -webkit-transform: rotate(90deg);
+   -moz-transform: rotate(90deg);
    -o-transform: rotate(90deg);
-   -ms-transform: rotate(90deg); 
+   -ms-transform: rotate(90deg);
    }
-  }
 }
 
 @media screen and (max-width: 480px) {

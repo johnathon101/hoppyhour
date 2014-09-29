@@ -30,8 +30,8 @@
 </div>
 </head>
 
-<body class = "clear">
-  
+<body>
+
   <div id= "sidebar">
     <%= image_tag('full.png', class: "full-menu glass") %>
     <%= image_tag('empty.png', class: "empty-menu glass") %>
@@ -70,9 +70,9 @@
     <% end %>
     <%= yield %>
   </div>
-
+</div>
 </body>
-<footer class="clear">
+<footer class="cf">
 
   <div id="ocs_logo">
     <%= image_tag "OCSlogo.png" %>
@@ -87,5 +87,5 @@
   </div>
 
 </footer>
-</div>
+
 </html>

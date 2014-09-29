@@ -42,10 +42,8 @@ html,body{
 	width: 100%;
   color:white;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
-  min-height:100%;
   position:relative;
-  margin: 0 0 -80px 0px;
-
+  min-height:100%;
 }
 
 
@@ -141,8 +139,8 @@ html,body{
   color:black;
 }
 #sidebar {
-	width: 20%;
-	float: left;
+    width: 20%;
+    float: left;
   clear: left;
   color:blue;
   background-color:#B6A68E;
@@ -200,11 +198,13 @@ html,body{
 
 footer {
   height:80px;
-  position:fixed;
+  position: relative;
   background-color:black;
   width:100%;
-  bottom:0;
   border:2px #A27533 solid;
+  clear: both;
+  overflow: visible;
+  margin-top: -80px;
 }
 #ocs_logo img{
   width:60px;
